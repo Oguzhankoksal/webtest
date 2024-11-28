@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenme İçerikleri Örnekleri</title>
+    <style>
+        /* Import Open Sans font */
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+        
+        /* Color Palette and General Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F0F4F7;
+            color: #484E65;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2460A2;
+            margin-bottom: 20px;
+        }
+
+        /* Filter Section */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* Dropdowns */
+        .filter-container select {
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            width: 300px; /* Increased width */
+            font-weight: normal;
+            color: #484E65;
+        }
+
+        /* Dropdown Header Styling */
+        .dropdown-header {
+            background-color: #F27774;  /* Distinctive color */
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 5px;
+        }
+
+        /* Styling for Select Option when in default state */
+        select option:first-child {
+            color: #F27774;
+            background-color: white;
+            font-weight: bold;
+        }
+
+        /* Dropdown styling when selected */
+        select:focus {
+            background-color: white;
+            color: #484E65;
+        }
+
+        select option {
+            font-weight: normal;
+            color: #484E65;
+        }
+
+        select option:disabled {
+            color: #ccc;
+        }
+
+        /* Results Section */
+        .results {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* PDF Links Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #2460A2;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Öğrenme İçerikleri Örnekleri</h1>
+
+    <div class="filter-container">
+        <!-- Dersler Filter -->
+        <div>
+            <select id="dersFilter" onchange="filterData()">
+                <option value="">Dersler</option>
+                <option value="Fen Bilimleri">Fen Bilimleri</option>
+                <option value="Görsel Sanatlar">Görsel Sanatlar</option>
+                <option value="İngilizce">İngilizce</option>
+                <option value="Matematik">Matematik</option>
+                <option value="Okulöncesi">Okulöncesi</option>
+                <option value="Sınıf Eğitimi">Sınıf Eğitimi</option>
+                <option value="Sosyal Bilimler">Sosyal Bilimler</option>
+                <option value="Türkçe - Türk Dili ve Edebiyatı">Türkçe - Türk Dili ve Edebiyatı</option>
+            </select>
+        </div>
+
+        <!-- Seviye Filter -->
+        <div>
+            <select id="seviyeFilter" onchange="filterData()">
+                <option value="">Seviye</option>
+                <option value="Okul öncesi">Okul öncesi</option>
+                <option value="İlkokul">İlkokul</option>
+                <option value="Ortaokul">Ortaokul</option>
+                <option value="Lise">Lise</option>
+            </select>
+        </div>
+
+        <!-- Dijital Araç Filter -->
+        <div>
+            <select id="aracFilter" onchange="filterData()">
+                <option value="">Dijital Araç</option>
+                <option value="Animasyon, 3B ve Multimedya İçerik">Animasyon, 3B ve Multimedya İçerik</option>
+                <option value="Çevrimiçi İstatistik">Çevrimiçi İstatistik</option>
+                <option value="Dijital Çizim ve Boyama">Dijital Çizim ve Boyama</option>
+                <option value="Dijital Kitap ve Hikaye">Dijital Kitap ve Hikaye</option>
+                <option value="Dijital Pano">Dijital Pano</option>
+                <option value="Dijital Portfolyo">Dijital Portfolyo</option>
+                <option value="Dinamik Geometri Yazılımı (DGY)">Dinamik Geometri Yazılımı (DGY)</option>
+                <option value="Eğitsel Oyun ve Etkileşimli İçerik">Eğitsel Oyun ve Etkileşimli İçerik</option>
+                <option value="Etkileşimli İçerik">Etkileşimli İçerik</option>
+                <option value="Etkileşimli Ölçme Değerlendirme">Etkileşimli Ölçme Değerlendirme</option>
+                <option value="Etkileşimli Sunum">Etkileşimli Sunum</option>
+                <option value="Görselleştirme ve Sanal Tur">Görselleştirme ve Sanal Tur</option>
+                <option value="Grafik Tasarım ve Görsel İçerik">Grafik Tasarım ve Görsel İçerik</option>
+                <option value="Grafik ve Matematiksel Modelleme">Grafik ve Matematiksel Modelleme</option>
+                <option value="Grafik, Çizelge, Takvim">Grafik, Çizelge, Takvim</option>
+                <option value="Harita ve Coğrafi Veri">Harita ve Coğrafi Veri</option>
+                <option value="Infografik ve Görsel İçerik">Infografik ve Görsel İçerik</option>
+                <option value="Kavram Haritası ve Ağı">Kavram Haritası ve Ağı</option>
+                <option value="Kimya ve Moleküler 3B Modelleme">Kimya ve Moleküler 3B Modelleme</option>
+                <option value="Poster ve Afiş">Poster ve Afiş</option>
+                <option value="Video, Ses ve Metin">Video, Ses ve Metin</option>
+                <option value="Yazım ve Dilbilgisi">Yazım ve Dilbilgisi</option>
+                <option value="Zihin ve Kavram Haritalama ile Akış Şeması">Zihin ve Kavram Haritalama ile Akış Şeması</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="results">
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Dersler</th>
+                    <th>Seviye</th>
+                    <th>Dijital Araç</th>
+                    <th>Örnek</th>
+                </tr>
+            </thead>
+            <tbody id="resultsBody">
+                <!-- Results will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Sample data from the provided Excel (substitute with the real links)
+        const data = [
+            { ders: 'Fen Bilimleri', seviye: 'Lise', arac: 'Kimya ve Moleküler 3B Modelleme', link: 'a1' },
+            { ders: 'Fen Bilimleri', seviye: 'Ortaokul', arac: 'Animasyon, 3B ve Multimedya İçerik', link: 'a2' },
+            { ders: 'Görsel Sanatlar', seviye: 'İlkokul', arac: 'Etkileşimli İçerik', link: 'a3' },
+            { ders: 'Türkçe - Türk Dili ve Edebiyatı', seviye: 'Ortaokul', arac: 'Çevrimiçi İstatistik', link: 'a4' },
+            { ders: 'Sosyal Bilimler', seviye: 'Lise', arac: 'Dijital Çizim ve Boyama', link: 'a5' },
+            { ders: 'İngilizce', seviye: 'İlkokul', arac: 'Etkileşimli Ölçme Değerlendirme', link: 'a6' },
+            { ders: 'Okulöncesi', seviye: 'Okul öncesi', arac: 'Eğitsel Oyun ve Etkileşimli İçerik', link: 'a7' },
+            { ders: 'Sosyal Bilimler', seviye: 'Ortaokul', arac: 'Etkileşimli Ölçme Değerlendirme', link: 'a8' },
+            { ders: 'Fen Bilimleri', seviye: 'Okul öncesi', arac: 'Video, Ses ve Metin', link: 'a9' },
+            { ders: 'Okulöncesi', seviye: 'Okul öncesi', arac: 'Poster ve Afiş', link: 'a10' },
+            { ders: 'İngilizce', seviye: 'İlkokul', arac: 'Grafik Tasarım ve Görsel İçerik', link: 'a11' }
+        ];
+
+        // Filter function to dynamically adjust dropdowns based on user selection
+        function filterData() {
+            const dersFilter = document.getElementById('dersFilter').value;
+            const seviyeFilter = document.getElementById('seviyeFilter').value;
+            const aracFilter = document.getElementById('aracFilter').value;
+
+            // Filter the data
+            const filteredData = data.filter(item => {
+                return (!dersFilter || item.ders === dersFilter) &&
+                       (!seviyeFilter || item.seviye === seviyeFilter) &&
+                       (!aracFilter || item.arac === aracFilter);
+            });
+
+            // Update the table
+            const resultsBody = document.getElementById('resultsBody');
+            resultsBody.innerHTML = ''; // Clear previous results
+
+            if (filteredData.length === 0) {
+                resultsBody.innerHTML = '<tr><td colspan="4">Sonuç bulunamadı.</td></tr>';
+                return;
+            }
+
+            filteredData.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.ders}</td>
+                    <td>${item.seviye}</td>
+                    <td>${item.arac}</td>
+                    <td><a href="#">${item.link}</a></td>
+                `;
+                resultsBody.appendChild(row);
+            });
+        }
+
+        // Reset the table when all dropdowns are reset
+        function resetTableIfNeeded() {
+            const dersFilter = document.getElementById('dersFilter').value;
+            const seviyeFilter = document.getElementById('seviyeFilter').value;
+            const aracFilter = document.getElementById('aracFilter').value;
+
+            // Clear table if all filters are back to their default state
+            if (!dersFilter && !seviyeFilter && !aracFilter) {
+                const resultsBody = document.getElementById('resultsBody');
+                resultsBody.innerHTML = ''; // Clear previous results
+            }
+        }
+
+        // Attach resetTableIfNeeded function to dropdown change
+        document.getElementById('dersFilter').addEventListener('change', resetTableIfNeeded);
+        document.getElementById('seviyeFilter').addEventListener('change', resetTableIfNeeded);
+        document.getElementById('aracFilter').addEventListener('change', resetTableIfNeeded);
+
+    </script>
+</body>
+</html>
