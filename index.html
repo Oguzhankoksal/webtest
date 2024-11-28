@@ -76,6 +76,10 @@
 
         /* Results Section */
         .results {
+            width: 700px; /* Set width */
+            height: 520px; /* Set height */
+            overflow: auto; /* Add scrolling if content exceeds container */
+            margin: 0 auto; /* Center alignment */
             text-align: center;
             margin-top: 20px;
         }
@@ -183,37 +187,24 @@
     </div>
 
     <script>
-        // Sample data from the provided Excel (substitute with the real links)
         const data = [
             { ders: 'Fen Bilimleri', seviye: 'Lise', arac: 'Kimya ve Moleküler 3B Modelleme', link: 'a1' },
             { ders: 'Fen Bilimleri', seviye: 'Ortaokul', arac: 'Animasyon, 3B ve Multimedya İçerik', link: 'a2' },
-            { ders: 'Görsel Sanatlar', seviye: 'İlkokul', arac: 'Etkileşimli İçerik', link: 'a3' },
-            { ders: 'Türkçe - Türk Dili ve Edebiyatı', seviye: 'Ortaokul', arac: 'Çevrimiçi İstatistik', link: 'a4' },
-            { ders: 'Sosyal Bilimler', seviye: 'Lise', arac: 'Dijital Çizim ve Boyama', link: 'a5' },
-            { ders: 'İngilizce', seviye: 'İlkokul', arac: 'Etkileşimli Ölçme Değerlendirme', link: 'a6' },
-            { ders: 'Okulöncesi', seviye: 'Okul öncesi', arac: 'Eğitsel Oyun ve Etkileşimli İçerik', link: 'a7' },
-            { ders: 'Sosyal Bilimler', seviye: 'Ortaokul', arac: 'Etkileşimli Ölçme Değerlendirme', link: 'a8' },
-            { ders: 'Fen Bilimleri', seviye: 'Okul öncesi', arac: 'Video, Ses ve Metin', link: 'a9' },
-            { ders: 'Okulöncesi', seviye: 'Okul öncesi', arac: 'Poster ve Afiş', link: 'a10' },
-            { ders: 'İngilizce', seviye: 'İlkokul', arac: 'Grafik Tasarım ve Görsel İçerik', link: 'a11' }
         ];
 
-        // Filter function to dynamically adjust dropdowns based on user selection
         function filterData() {
             const dersFilter = document.getElementById('dersFilter').value;
             const seviyeFilter = document.getElementById('seviyeFilter').value;
             const aracFilter = document.getElementById('aracFilter').value;
 
-            // Filter the data
             const filteredData = data.filter(item => {
                 return (!dersFilter || item.ders === dersFilter) &&
                        (!seviyeFilter || item.seviye === seviyeFilter) &&
                        (!aracFilter || item.arac === aracFilter);
             });
 
-            // Update the table
             const resultsBody = document.getElementById('resultsBody');
-            resultsBody.innerHTML = ''; // Clear previous results
+            resultsBody.innerHTML = '';
 
             if (filteredData.length === 0) {
                 resultsBody.innerHTML = '<tr><td colspan="4">Sonuç bulunamadı.</td></tr>';
@@ -231,25 +222,6 @@
                 resultsBody.appendChild(row);
             });
         }
-
-        // Reset the table when all dropdowns are reset
-        function resetTableIfNeeded() {
-            const dersFilter = document.getElementById('dersFilter').value;
-            const seviyeFilter = document.getElementById('seviyeFilter').value;
-            const aracFilter = document.getElementById('aracFilter').value;
-
-            // Clear table if all filters are back to their default state
-            if (!dersFilter && !seviyeFilter && !aracFilter) {
-                const resultsBody = document.getElementById('resultsBody');
-                resultsBody.innerHTML = ''; // Clear previous results
-            }
-        }
-
-        // Attach resetTableIfNeeded function to dropdown change
-        document.getElementById('dersFilter').addEventListener('change', resetTableIfNeeded);
-        document.getElementById('seviyeFilter').addEventListener('change', resetTableIfNeeded);
-        document.getElementById('aracFilter').addEventListener('change', resetTableIfNeeded);
-
     </script>
 </body>
 </html>
